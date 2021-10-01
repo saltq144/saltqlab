@@ -4,10 +4,12 @@
 #include <stdlib.h>
 #include <string>
 #include <iostream>
-using namespace std;
 
 //WX--.cpp
 #include <iostream>
 #include <stdlib.h>
-#include "assert.h"
-using namespace std;
+//#include "assert.h"
+#include "usage.h"
+
+//GP
+#include "lpi.h"
