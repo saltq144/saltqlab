@@ -10,6 +10,8 @@
 #include <stdlib.h>
 //#include "assert.h"
 #include "usage.h"
+#include "lpi.h"
 
-//GP
+//usage.h
+#include <iostream>
 #include "lpi.h"
