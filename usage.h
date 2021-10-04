@@ -11,7 +11,7 @@ void usage() {
 	std::cout << "****      No args            Displays help.                                    \n";
 	std::cout << "****      Invalid args       Displays help.                                    \n";
 	std::cout << "****      -h                 Displays help.                                    \n";
-	std::cout << "****      -t                 Testing mode. Not implented                       \n";
+	std::cout << "****      -t                 Testing mode. Not implemented                     \n";
 	std::cout << "****\n***\n**\n*";
 	USsleep(1000000);
 }
