@@ -22,7 +22,7 @@ int main(int argc, char* argv[]) {
 	if (boolean_flags_forceHelp || boolean_flags_help || argc == 1) {
 		usage();
 	} if (boolean_flags_test) {
-		std::cout << "\nTesting mode not implemented";
+		std::cout << "Testing mode not implemented\n";
 	}
 	USsleep(5000000);
 }
