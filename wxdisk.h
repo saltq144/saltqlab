@@ -29,3 +29,17 @@ bool exists(std::string path) {
 		return false;
 	}
 }
+
+bool overwriteContent(std::string path, std::string content) {
+	std::ofstream file(path,
+		std::ios::in                      | 
+		std::ios::out                     | 
+		std::ios::binary                  | 
+		std::ios::trunc);
+	if (file.is_open()) {
+		file << content;
+		file.close();
+		return true;
+	}
+	return false;
+}
