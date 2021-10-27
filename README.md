@@ -1,7 +1,7 @@
 # saltqlab
 Command line arguments ( ignore the ^^s, they are for alignment):
 
-Usage: "WX-- [ -h  | -t ]"
+Usage: "saltqlab [ -h  | -t ]"
 
    * No args^^^^^^^^^^^^^Displays help.
    * Invalid args^^^^^^^^^^^Displays help.
