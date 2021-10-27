@@ -1,4 +1,4 @@
-# WX--
+# saltqlab
 Command line arguments ( ignore the ^^s, they are for alignment):
 
 Usage: "WX-- [ -h  | -t ]"
