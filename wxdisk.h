@@ -52,8 +52,7 @@ namespace disk {
 		}
 	}
 	namespace dir {
-		bool exists(std::string path)
-		{
+		bool exists(std::string path) {
 			struct stat info;
 
 			int statRC = stat(path.c_str(), &info);
@@ -65,6 +64,10 @@ namespace disk {
 			}
 
 			return (info.st_mode & S_IFDIR) ? true : false;
+		}
+		void create(std::string path) {
+			std::string mkdirstr = "mkdir ";
+			system(const_cast<char*>((mkdirstr + path).c_str()));
 		}
 	}
 }
