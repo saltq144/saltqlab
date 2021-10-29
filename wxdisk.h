@@ -9,31 +9,42 @@ namespace disk {
 		std::string getContent(std::string path) {
 			std::string content = "";
 			std::string line = "";
-			std::ifstream file(path);
+			std::ifstream fil(path);
 
-			if (file.is_open()) {
-				while (std::getline(file, line)) {
+			if (fil.is_open()) {
+				while (std::getline(fil, line)) {
 					content = content + line;
 					content = content + "\n";
 				}
 			}
 
-			file.close();
+			fil.close();
 			return content;
 		}
 
 
 
 		bool exists(std::string path) {
-			std::ifstream file(path);
-			if (file) {
-				file.close();
+			std::ifstream fil(path);
+			if (fil) {
+				fil.close();
 				return true;
 			}
 			else {
-				file.close();
+				fil.close();
 				return false;
 			}
+		}
+		bool create(std::string path) {
+			std::ofstream fil(path,
+				std::ios::in |
+				std::ios::out |
+				std::ios::binary |
+				std::ios::trunc);
+			if (fil) return true;
+			fil << std::endl;
+			if (fil) return true;
+			return false;
 		}
 
 
