@@ -8,12 +8,12 @@
 //WX--.cpp
 #include <iostream>
 #include <stdlib.h>
-#include "usage.h"
-#include "lpi.h"
+#include "usage.hpp"
+#include "lpi.hpp"
 
 //usage.h
 #include <iostream>
-#include "lpi.h"
+#include "lpi.hpp"
 
 //wxdisk.h
-#include "exceptions.h"
+#include "exceptions.hpp"
