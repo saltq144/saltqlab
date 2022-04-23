@@ -1,10 +1,18 @@
 # saltqlab
-Command line arguments ( ignore the ^^s, they are for alignment):
+
+## How to compile:
+```
+    g++ saltqlab.cpp -o saltqlab -Wall -Wextra -O2
+```
+
+
+
+Command line arguments:
 
 ```
-   * Usage: "saltqlab [ -h  | -t | -hl ]"
+   * Usage: "saltqlab [ -h | -t | -hl ]"
    * Invalid args                    Displays help.
    * -h                              Displays help.
    * -t                              Testing mode. Not implemented.
-   * -hl                             s
+   * -hl                             Displays the license (GPL-3).
 ```

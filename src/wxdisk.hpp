@@ -2,7 +2,9 @@
 #include <fstream>
 #include <string>
 #include <errno.h>
-#include "inc.h"
+#include "inc.hpp"
+#include <sys/types.h>
+#include <sys/stat.h>
 
 namespace disk {
 	namespace file {
@@ -63,22 +65,18 @@ namespace disk {
 		}
 	}
 	namespace dir {
-		bool exists(std::string path) {
+		int exists(std::string path) {
 			struct stat info;
-
-			int statRC = stat(path.c_str(), &info);
-			if (statRC != 0)
-			{
-				if (errno == ENOENT) { return false; } // something along the path does not exist
-				if (errno == ENOTDIR) { return false; } // something in path prefix is not a dir
-				throw EXCEPT_DIR_EXISTS_ERROR;
-			}
-
-			return (info.st_mode & S_IFDIR) ? true : false;
-		}
-		void create(std::string path) {
-			std::string mkdirstr = "mkdir ";
-			system(const_cast<char*>((mkdirstr + path).c_str()));
+      if( stat( path.c_str(), &info ) != 0 )
+        return 0;
+      else if( info.st_mode & S_IFDIR ) 
+        return 1;
+      else
+        return -1;
+      }
+    void create(std::string path) {
+    	std::string mkdirstr = "mkdir ";
+      system(const_cast<char*>((mkdirstr + path).c_str()));
 		}
 	}
 }
