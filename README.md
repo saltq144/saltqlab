@@ -2,7 +2,7 @@
 
 ## How to compile:
 ```
-    g++ saltqlab.cpp -o saltqlab -Wall -Wextra -O2
+    g++ ./src/saltqlab.cpp -o saltqlab -Wall -Wextra -O2 && ./saltqlab
 ```
 
 
