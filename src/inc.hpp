@@ -5,15 +5,13 @@
 #include <string>
 #include <iostream>
 
-//WX--.cpp
+//saltqlab.cpp
 #include <iostream>
 #include <stdlib.h>
 #include "usage.hpp"
 #include "lpi.hpp"
+#include "wxdisk.hpp"
 
 //usage.h
 #include <iostream>
 #include "lpi.hpp"
-
-//wxdisk.h
-#include "exceptions.hpp"
