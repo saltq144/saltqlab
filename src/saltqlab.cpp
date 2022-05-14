@@ -4,17 +4,52 @@
 #include "saltqlab.hpp"
 
 // Debug stuff
-#define DEBUG_
+#define DEBUG
 #ifdef DEBUG_
 #define debugPrint(x) std::cout << "\x1b[32m" << __LINE__ << " - " << (__FILE__) << " - " << (x) << "\x1b[0m";
 #else
 #define debugPrint(x)
 #endif
 
-struct test_t;
+struct test_t {
+	std::string output;
+	bool output_raw;
+	std::string arguments;
+	bool arguments_raw;
+};
+namespace test {
+	bool startsWith3F(std::string in, std::string c) {
+		if (in.size() < c.size()) return false;
+    	for (uint i = 0; i < c.size(); i++) {
+        	if (c[i] != in[i]) return false;
+    	}
+		return true;
+	}
+	void doTesting(int argc, char* argv[]) {
+		std::string testfile = "";
+		for (int i = 1; i < argc; i++) {
+			if (startsWith3F(std::string(argv[i]), "-testfile=")) {testfile = argv[i] + 10;}
+			if (startsWith3F(std::string(argv[i]), "-testfile=\"")) {testfile = argv[i] + 11;}
+			std::cout << testfile;
+		}
+	}
+	void test(int argc, char* argv[]) {
+		for (int i = 1; i < argc; i++) {
+			if (std::string(argv[i]) == "-t") { continue;}
+			if (std::string(argv[i]) == "-doit") { doTesting(argc, argv);}
+		}
+	}
+	std::string testToString(test_t i) {
+		if (i.output_raw) i.output = bdss::encode(i.output);
+		i.output_raw = true;
+		if (i.arguments_raw) i.arguments = bdss::encode(i.arguments);
+		i.arguments_raw = true;
+
+		return i.output + "\n" + i.arguments;
+	}
+}
 
 int main(int argc, char* argv[]) {
-	
 	bool boolean_flags_forceHelp = false;
 	bool boolean_flags_help = false;
 	bool boolean_flags_test = false;
@@ -26,8 +61,8 @@ int main(int argc, char* argv[]) {
 			boolean_flags_help = true;
 		} else if (std::string(argv[i]) == "-t") {
 			boolean_flags_test = true;
-    } else if (std::string(argv[i]) == "-hl") {
-      boolean_flags_license_help = true;
+        } else if (std::string(argv[i]) == "-hl") {
+            boolean_flags_license_help = true;
 		} else {
 			boolean_flags_forceHelp = true;
 		}
@@ -35,7 +70,7 @@ int main(int argc, char* argv[]) {
 	if (boolean_flags_forceHelp || boolean_flags_help || argc == 1) {
 		usage();
 	} if (boolean_flags_test) {
-		std::cout << "Testing mode not implemented\n";
+		test::test(argc, argv);
 	} if (boolean_flags_license_help) {
     	license();
 	} if (boolean_flags_help         || boolean_flags_forceHelp    || boolean_flags_license_help || boolean_flags_test) {
@@ -43,11 +78,6 @@ int main(int argc, char* argv[]) {
   }
 }
 
-namespace test {
-	void test() {
-
-	}
-}
 namespace bdss {
 	std::string stringInt(char x) {
 		std::string o = "";
@@ -71,10 +101,3 @@ namespace bdss {
 		return ":" + o;
 	}
 }
-
-struct test_t {
-	std::string output;
-	bool output_raw;
-	std::string arguments;
-	bool arguments_raw;
-};
