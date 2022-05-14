@@ -1,18 +1,13 @@
 # saltqlab
 
-## How to compile:
+## Quick start
+### Compiling
+Running the following will compile the code into ./build/saltqlab
 ```
-    g++ ./src/saltqlab.cpp -o saltqlab -Wall -Wextra -O2
+g++ --std=c++17 ./src/saltqlab.cpp ./build/wxdisk.o -o ./build/saltqlab -Wall -Wextra -O2 -lstdc++fs
 ```
-
-
-
-Command line arguments:
-
+If that doesn't work, then running the following before that should help:  
 ```
-   * Usage: "saltqlab [ -h | -t | -hl ]"
-   * Invalid args                    Displays help.
-   * -h                              Displays help.
-   * -t                              Testing mode. Not implemented.
-   * -hl                             Displays the license (GPL-3).
+ g++ --std=c++17 -c ./src/wxdisk.cpp -o ./build/wxdisk.o -Wall -Wextra -O2 -lstdc++fs
 ```
+If that doesn't work I have no idea why. Please also note the file extension of the output file.
