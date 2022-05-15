@@ -18,7 +18,7 @@ g++ --std=c++17 ./src/saltqlab.cpp ./build/wxdisk.o -o ./build/saltqlab -Wall -W
 
 ### Paths
 
-Those commands assume the source code is in ./src, using this on windows requires that all ```/```s are replaced by ```\```s.
+Those commands assume the source code is in ```./src```, using this on windows requires that all ```/```s are replaced by ```\```s.
 
 ### Experimental library problems
 
